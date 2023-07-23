@@ -9,7 +9,7 @@ import java.sql.*;
 import java.util.ArrayList;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class UserDao {
     public static void save(User user){
