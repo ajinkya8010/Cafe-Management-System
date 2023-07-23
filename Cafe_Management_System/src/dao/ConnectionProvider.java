@@ -6,7 +6,7 @@ package dao;
 import java.sql.*;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ConnectionProvider {
     public static Connection getCon(){
