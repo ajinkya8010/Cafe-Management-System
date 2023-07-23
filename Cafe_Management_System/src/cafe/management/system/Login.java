@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import model.User;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class Login extends javax.swing.JFrame {
     public String emailPattern="^[a-zA-z0-9]+[@]+[a-zA-z0-9]+[.]+[a-zA-z0-9]+$";
