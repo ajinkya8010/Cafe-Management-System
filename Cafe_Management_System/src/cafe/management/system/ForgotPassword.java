@@ -9,7 +9,7 @@ import model.User;
 import dao.UserDao;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ForgotPassword extends javax.swing.JFrame {
     private String dbAnswer=null;
