@@ -8,7 +8,7 @@ import dao.UserDao;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ChangePassword extends javax.swing.JFrame {
         public String userEmail;
