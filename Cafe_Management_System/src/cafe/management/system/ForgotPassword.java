@@ -9,12 +9,13 @@ import model.User;
 import dao.UserDao;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ForgotPassword extends javax.swing.JFrame {
-    private String dbAnswer=null;
-    private String email=null;
-    private String emailPattern="^[a-zA-z0-9]+[@]+[a-zA-z0-9]+[.]+[a-zA-z0-9]+$";
+    private String dbAnswer = null;
+    private String email = null;
+    private String emailPattern = "^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$"; 
+
     /**
      * Creates new form ForgotPassword
      */
@@ -25,8 +26,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         txtSecQue.setEditable(false);
     }
     
-    public void clear()
-    {
+    public void clear(){
         btnUpdate.setEnabled(false);
         btnSearch.setEnabled(false);
         txtEmail.setEditable(true);
@@ -36,26 +36,26 @@ public class ForgotPassword extends javax.swing.JFrame {
         txtNewPassword.setText("");
     }
     
-    public void validateEmail()
-    {
-        email=txtEmail.getText();
-        if(email.matches(emailPattern))
+    public void validateEmail(){
+        email = txtEmail.getText();
+        if(email.matches(emailPattern)){
             btnSearch.setEnabled(true);
-        else
+        }else{
             btnSearch.setEnabled(false);
+        }
     }
     
-    public void validateFields()
-    {
-        String password=txtNewPassword.getText();
-        String answer=txtAnswer.getText();
-        String securityQuestion=txtSecQue.getText();
-        if(!password.equals("")&& !answer.equals("")&& !securityQuestion.equals(""))
+    public void validateFeilds(){
+        String password = txtNewPassword.getText();
+        String answer = txtAnswer.getText();
+        String securityQuetion = txtSecQue.getText();
+        if(!password.equals("") && !answer.equals("") && !securityQuetion.equals("")){
             btnUpdate.setEnabled(true);
-        else
+        }else{
             btnUpdate.setEnabled(false);
+        }
+        
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -86,134 +86,126 @@ public class ForgotPassword extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(51, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 0, 0));
         jLabel1.setText("Forgot Password?");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 410, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 160, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(204, 0, 0));
         jLabel2.setText("Email");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 100, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 260, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText(" Your Security Question");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 270, 310, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 0, 0));
+        jLabel3.setText("Your Security Quetion");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 0));
         jLabel4.setText("Your Answer");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 180, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 360, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(204, 0, 0));
         jLabel5.setText("Enter New Password");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 400, 270, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 200, -1));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 211, 351, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 260, 351, -1));
 
-        txtSecQue.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtSecQue.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtSecQue.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtSecQueKeyReleased(evt);
             }
         });
-        getContentPane().add(txtSecQue, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 273, 351, -1));
+        getContentPane().add(txtSecQue, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 310, 351, -1));
 
-        txtAnswer.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtAnswer.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtAnswer.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtAnswerKeyReleased(evt);
             }
         });
-        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 351, -1));
+        getContentPane().add(txtAnswer, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 360, 351, -1));
 
-        txtNewPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtNewPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtNewPassword.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNewPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 400, 351, -1));
+        getContentPane().add(txtNewPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 410, 351, -1));
 
-        btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search.png"))); // NOI18N
-        btnSearch.setText("Search");
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/search1.png"))); // NOI18N
+        btnSearch.setText("Find");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(997, 211, 150, 40));
+        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1100, 260, 90, 30));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/updatee_1.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(586, 455, 130, 40));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 450, -1, 30));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clearr.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(825, 456, 120, 40));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 450, -1, 30));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit-door.png"))); // NOI18N
         jButton4.setText("Exit");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1183, 36, 120, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 450, -1, 30));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setText("Signup");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, 90, 40));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 490, -1, 30));
 
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton6.setText("Login");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 540, 100, 40));
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 490, -1, 30));
 
-        jLabel6.setBackground(new java.awt.Color(240, 240, 240));
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cafe.png"))); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/green-background-medium.png"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-         setVisible(false);
-        new Login().setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
         // TODO add your handling code here:
@@ -222,24 +214,23 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     private void txtSecQueKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSecQueKeyReleased
         // TODO add your handling code here:
-        validateFields();
+        validateFeilds();
     }//GEN-LAST:event_txtSecQueKeyReleased
 
     private void txtAnswerKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAnswerKeyReleased
         // TODO add your handling code here:
-        validateFields();
+         validateFeilds();
     }//GEN-LAST:event_txtAnswerKeyReleased
 
     private void txtNewPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNewPasswordKeyReleased
         // TODO add your handling code here:
-        validateFields();
+         validateFeilds();
     }//GEN-LAST:event_txtNewPasswordKeyReleased
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        int a=JOptionPane.showConfirmDialog(null,"Do you really want to Close Application","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close application","Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){ //User selected yes
             System.exit(0);
         }
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -251,35 +242,30 @@ public class ForgotPassword extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        String answer=txtAnswer.getText();
-        String newPassword=txtNewPassword.getText();
-        if(answer.equals(dbAnswer))
-        {
+        String answer = txtAnswer.getText();
+        String newPassword = txtNewPassword.getText();
+        if(answer.equals(dbAnswer)){
             UserDao.update(email, newPassword);
             clear();
-        }
-        else
-        {
+        }else{
             JOptionPane.showMessageDialog(null, "<html><b style=\"color:red\">Incorrect Answer</b></html>","Message",JOptionPane.ERROR_MESSAGE);
         }
+        
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         // TODO add your handling code here:
-        email=txtEmail.getText();
-        User user=null;
-        user=UserDao.getSecurityQuestion(email);
-        if(user==null)
-        {
+        email = txtEmail.getText();
+        User user = null;
+        user = UserDao.getSecurityQuetion(email);
+        if(user==null){
             JOptionPane.showMessageDialog(null, "<html><b style=\"color:red\">Incorrect Email</b></html>","Message",JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        {
+        }else{
             btnSearch.setEnabled(false);
             txtEmail.setEditable(false);
-            dbAnswer=user.getAnswer();
-            txtSecQue.setText(user.getSecurityQuestion());
-            validateFields();
+            dbAnswer = user.getAnswer();
+            txtSecQue.setText(user.getSecurityQuetion());
+            validateFeilds();
         }
     }//GEN-LAST:event_btnSearchActionPerformed
 
@@ -288,6 +274,12 @@ public class ForgotPassword extends javax.swing.JFrame {
         setVisible(false);
         new Signup().setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+        new Login().setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

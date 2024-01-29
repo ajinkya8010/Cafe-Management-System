@@ -3,18 +3,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package cafe.management.system;
-
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-import model.User;
 import dao.UserDao;
+import model.User;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
-
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class VerifyUsers extends javax.swing.JFrame {
 
@@ -24,24 +22,19 @@ public class VerifyUsers extends javax.swing.JFrame {
     public VerifyUsers() {
         initComponents();
     }
-    
-    public void getAllRecords(String email)
-    {
-        DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
+
+    public void getAllRecords(String email){
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         dtm.setRowCount(0);
-        ArrayList<User> list=UserDao.getAllRecords(email);
-        Iterator<User> itr=list.iterator();
-        while(itr.hasNext())
-        {
-            User userObj=itr.next();
-            if(!userObj.getEmail().equals("admin@gmail.com"))
-            {
-                dtm.addRow(new Object[]{userObj.getId(),userObj.getName(),userObj.getEmail(),userObj.getMobileNumber(),userObj.getAddress(),userObj.getSecurityQuestion(),userObj.getStatus()});
-                
+        ArrayList<User> list = UserDao.getAllRecords(email);
+        Iterator<User> itr = list.iterator();
+        while(itr.hasNext()){
+            User userObj = itr.next();
+            if(!userObj.getEmail().equals("admin@gmail.com")){
+                dtm.addRow(new Object[]{userObj.getId(),userObj.getName(),userObj.getEmail(),userObj.getMobileNumber(),userObj.getAddress(),userObj.getSecurityQuetion(),userObj.getStatus()});
             }
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,7 +47,7 @@ public class VerifyUsers extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        txtSearch = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
@@ -69,11 +62,11 @@ public class VerifyUsers extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verify users.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/verified_users.png"))); // NOI18N
         jLabel1.setText("Verify Users");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 21, 200, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 128, 30));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,33 +74,32 @@ public class VerifyUsers extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1280, 20, 60, 40));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1330, 10, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Search");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 80, 90, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
 
-        txtSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
+                txtEmailActionPerformed(evt);
             }
         });
-        txtSearch.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchKeyReleased(evt);
+                txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 80, 254, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 290, -1));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Name", "Email", "Mobile Number", "Address", "Security Question", "Status"
+                "ID", "Name", "Email", "Mobile Number", "Address", "Security Quetion", "Status"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -117,21 +109,27 @@ public class VerifyUsers extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 170, 1325, 489));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 150, 1179, 505));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("*Click on row to change status");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 690, 503, -1));
+        jLabel3.setFont(new java.awt.Font("Algerian", 0, 36)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("* Click on row to change status");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(409, 689, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/full-page-background.PNG"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/green-background-medium.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 1380, 780));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
+
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         getAllRecords("");
+        
     }//GEN-LAST:event_formComponentShown
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -139,29 +137,25 @@ public class VerifyUsers extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
-    private void txtSearchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchKeyReleased
-        // TODO add your handling code here:
-        String search=txtSearch.getText();
-        getAllRecords(search);
-    }//GEN-LAST:event_txtSearchKeyReleased
+        String email = txtEmail.getText();
+        getAllRecords(email);
+    }//GEN-LAST:event_txtEmailKeyReleased
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        int index=jTable1.getSelectedRow();
-        TableModel model=jTable1.getModel();
-        String email=model.getValueAt(index, 2).toString();
-        String status=model.getValueAt(index, 6).toString();
-        if(status.equals("true"))
-            status="false";
-        else
-            status="true";
-        int a=JOptionPane.showConfirmDialog(null,"Do you want to change status of"+email+"","Select",JOptionPane.YES_NO_OPTION );
-        if(a==0)
-        {
+        int index = jTable1.getSelectedRow();
+        TableModel model = jTable1.getModel();
+        String email = model.getValueAt(index, 2).toString();
+        String status = model.getValueAt(index, 6).toString();
+        if(status.equals("true")){
+            status = "false";
+        }else{
+            status = "true";
+        }
+        int a = JOptionPane.showConfirmDialog(null, "Do you wamt to change status of "+email+"","Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){
             UserDao.changeStatus(email, status);
             setVisible(false);
             new VerifyUsers().setVisible(true);
@@ -211,6 +205,6 @@ public class VerifyUsers extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtEmail;
     // End of variables declaration//GEN-END:variables
 }

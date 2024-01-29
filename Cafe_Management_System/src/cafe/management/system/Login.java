@@ -8,14 +8,13 @@ import dao.UserDao;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import model.User;
+
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class Login extends javax.swing.JFrame {
-    public String emailPattern="^[a-zA-z0-9]+[@]+[a-zA-z0-9]+[.]+[a-zA-z0-9]+$";
-    public String mobileNumberPattern="^[0-9]*$";
-
+    public String emailPattern = "^[a-zA-Z0-9]+[@]+[a-zA-Z0-9]+[.]+[a-zA-Z0-9]+$";
     /**
      * Creates new form Login
      */
@@ -23,26 +22,22 @@ public class Login extends javax.swing.JFrame {
         initComponents();
         btnLogin.setEnabled(false);
     }
-    public void clear()
-    {
+    
+    public void clear(){
         txtEmail.setText("");
         txtPassword.setText("");
         btnLogin.setEnabled(false);
     }
     
-    public void validateFields()
-    {
-        String email=txtEmail.getText();
-        String password=txtPassword.getText();
-        if(email.matches(emailPattern) && !password.equals(""))
-        {
-            btnLogin.setEnabled(true);
-        }
-        else
-        {
-            btnLogin.setEnabled(false);
-        }
-    }
+    public void validateFeilds(){
+       String email = txtEmail.getText();
+       String password = txtPassword.getText();
+       if(email.matches(emailPattern) && !password.equals("")){
+           btnLogin.setEnabled(true);
+       }else{
+           btnLogin.setEnabled(false);
+       }               
+   }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,33 +61,34 @@ public class Login extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 51, 255));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel1.setText("Login");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 160, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 120, 120, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Email");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 210, 100, 30));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 207, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 24)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setText("Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(405, 263, -1, -1));
 
-        txtEmail.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtEmailActionPerformed(evt);
+            }
+        });
         txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtEmailKeyReleased(evt);
             }
         });
-        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 210, 351, -1));
+        getContentPane().add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 204, 349, -1));
 
-        txtPassword.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -103,9 +99,9 @@ public class Login extends javax.swing.JFrame {
                 txtPasswordKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 310, 351, -1));
+        getContentPane().add(txtPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 260, 349, -1));
 
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/login.png"))); // NOI18N
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -113,101 +109,94 @@ public class Login extends javax.swing.JFrame {
                 btnLoginActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 380, 120, 40));
+        getContentPane().add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clearr.png"))); // NOI18N
         btnClear.setText("Clear");
-        btnClear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClearActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 380, 120, 40));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, -1, 30));
 
-        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit small.png"))); // NOI18N
+        btnExit.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/exit-door.png"))); // NOI18N
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnExitActionPerformed(evt);
             }
         });
-        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(1183, 36, 130, 50));
+        getContentPane().add(btnExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 310, -1, 30));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton4.setText("Forgot Password?");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 180, 40));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setText("Signup");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 550, 100, 40));
+        getContentPane().add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(802, 353, -1, -1));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/cafe.png"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, -1, -1));
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/loginBG.png"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -200, 1800, 1180));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        String email=txtEmail.getText();
-        String password=txtPassword.getText();
-        User user=null;
-        user=UserDao.login(email, password);
-        if(user==null)
-            JOptionPane.showMessageDialog(null,"<html><b style=\"color:red\">Incorrect Username or Password</b></html>","Message",JOptionPane.ERROR_MESSAGE);
-        else
-        {
-            if(user.getStatus().equals("false"))
-            {
-                ImageIcon icon=new ImageIcon("src/popupicon/wait.png");
-                JOptionPane.showMessageDialog(null, "<html><b>Wait for Admin approval</b></html>","Message",JOptionPane.INFORMATION_MESSAGE,icon);
+        // TODO add your handling code here:
+        String email = txtEmail.getText();
+        String password = txtPassword.getText();
+        User user = null;
+        user = UserDao.login(email, password);
+        if(user==null){
+            JOptionPane.showMessageDialog(null, "<html><b style=\"color:red\">Incorrect User name or password</b></html>","Message",JOptionPane.ERROR_MESSAGE);
+        }else{
+            if(user.getStatus().equals("false")){
+                ImageIcon icon = new ImageIcon("src/popupicon/wait");
+                JOptionPane.showMessageDialog(null, "<html><b>Wait for admin approval</b></html>","Message",JOptionPane.INFORMATION_MESSAGE,icon);
                 clear();
             }
             if(user.getStatus().equals("true")){
                 setVisible(false);
                 new Home(email).setVisible(true);
             }
+            
         }
-        
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        int a=JOptionPane.showConfirmDialog(null,"Do You really want to close Application","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        // TODO add your handling code here:
+        int a = JOptionPane.showConfirmDialog(null, "Do you really want to close application","Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){
             System.exit(0);
         }
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
         // TODO add your handling code here:
-        validateFields();
+        validateFeilds();
     }//GEN-LAST:event_txtEmailKeyReleased
 
     private void txtPasswordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPasswordKeyReleased
         // TODO add your handling code here:
-        validateFields();
+        validateFeilds();
     }//GEN-LAST:event_txtPasswordKeyReleased
-
-    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        // TODO add your handling code here:
-        clear();
-    }//GEN-LAST:event_btnClearActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:

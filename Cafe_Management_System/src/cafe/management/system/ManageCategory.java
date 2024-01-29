@@ -6,16 +6,15 @@ package cafe.management.system;
 
 import model.Category;
 import dao.CategoryDao;
-import java.util.*;
-import javax.swing.table.DefaultTableModel;
-import java.lang.*;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import java.util.*;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableModel;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ManageCategory extends javax.swing.JFrame {
 
@@ -26,12 +25,12 @@ public class ManageCategory extends javax.swing.JFrame {
         initComponents();
         btnSave.setEnabled(false);
     }
-
-    public void validateField() {
-        String category = txtName.getText();
-        if (!category.equals("")) {
+    
+    public void validateFeild(){
+        String category  = txtName.getText();
+        if(!category.equals("")){
             btnSave.setEnabled(true);
-        } else {
+        }else{
             btnSave.setEnabled(false);
         }
     }
@@ -67,10 +66,11 @@ public class ManageCategory extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/category.png"))); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/manage.png"))); // NOI18N
         jLabel1.setText("Manage Category");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 13, 168, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 24, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,14 +78,14 @@ public class ManageCategory extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(639, 13, 40, 30));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(668, 6, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("View Category");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 88, 126, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 37, -1, -1));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -101,55 +101,56 @@ public class ManageCategory extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 126, 387, 237));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(251, 60, 414, 266));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("*Click on row to delete Category");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 370, 243, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(337, 338, -1, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Add New Category");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 132, 130, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(52, 106, -1, -1));
 
-        txtName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtName.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentShown(java.awt.event.ComponentEvent evt) {
-                txtNameComponentShown(evt);
-            }
-        });
+        txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 164, 239, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 135, 214, -1));
 
-        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        btnSave.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnSave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save_10061442.png"))); // NOI18N
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 208, -1, -1));
+        getContentPane().add(btnSave, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 170, -1, 30));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clearr.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(163, 208, -1, -1));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 170, -1, 30));
 
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/small-page-background.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 820, 530));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
+        // TODO add your handling code here:
+        validateFeild();
+    }//GEN-LAST:event_txtNameKeyReleased
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
@@ -160,25 +161,16 @@ public class ManageCategory extends javax.swing.JFrame {
         new ManageCategory().setVisible(true);
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
-        // TODO add your handling code here:
-        validateField();
-    }//GEN-LAST:event_txtNameKeyReleased
-
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
         DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
         ArrayList<Category> list = CategoryDao.getAllRecords();
         Iterator<Category> itr = list.iterator();
-        while (itr.hasNext()) {
+        while(itr.hasNext()){
             Category categoryObj = itr.next();
-            dtm.addRow(new Object[]{categoryObj.getId(), categoryObj.getName()});
+            dtm.addRow(new Object[]{categoryObj.getId(),categoryObj.getName()});
         }
     }//GEN-LAST:event_formComponentShown
-
-    private void txtNameComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_txtNameComponentShown
-
-    }//GEN-LAST:event_txtNameComponentShown
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -186,8 +178,8 @@ public class ManageCategory extends javax.swing.JFrame {
         TableModel model = jTable1.getModel();
         String id = model.getValueAt(index, 0).toString();
         String name = model.getValueAt(index, 1).toString();
-        int a = JOptionPane.showConfirmDialog(null, "Do you want to Delete" + name + "Category", "Select", JOptionPane.YES_NO_OPTION);
-        if (a == 0) {
+        int a = JOptionPane.showConfirmDialog(null, "Do you want to delete "+name+" Category","Select",JOptionPane.YES_NO_OPTION);
+        if(a==0){
             CategoryDao.delete(id);
             setVisible(false);
             new ManageCategory().setVisible(true);

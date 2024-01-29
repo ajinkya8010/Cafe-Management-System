@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class User {
     private int id;
@@ -15,9 +15,8 @@ public class User {
     private String mobileNumber;
     private String address;
     private String password;
-    private String securityQuestion;
+    private String securityQuetion;
     private String answer;
-    private String status;
 
     public int getId() {
         return id;
@@ -63,16 +62,16 @@ public class User {
         return password;
     }
 
-    public void setPassword(String passsword) {
+    public void setPassword(String password) {
         this.password = password;
     }
 
-    public String getSecurityQuestion() {
-        return securityQuestion;
+    public String getSecurityQuetion() {
+        return securityQuetion;
     }
 
-    public void setSecurityQuestion(String securityQuestion) {
-        this.securityQuestion = securityQuestion;
+    public void setSecurityQuetion(String securityQuetion) {
+        this.securityQuetion = securityQuetion;
     }
 
     public String getAnswer() {
@@ -90,7 +89,5 @@ public class User {
     public void setStatus(String status) {
         this.status = status;
     }
-    
-    
-    
+    private String status;
 }

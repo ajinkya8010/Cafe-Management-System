@@ -13,9 +13,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import model.Category;
+
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ViewEditDeleteProduct extends javax.swing.JFrame {
 
@@ -27,18 +28,14 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         btnUpdate.setEnabled(false);
         btnDelete.setEnabled(false);
     }
-    
-    public void validateField()
-    {
-        String name=txtName.getText();
-        String price=txtPrice.getText();
-        String category=(String)jComboBox1.getSelectedItem();
-        if(!name.equals("") && !price.equals("")&& category!=null)
-        {
+
+    public void validatFeild() {
+        String name = txtName.getText();
+        String price = txtPrice.getText();
+        String Category = (String) jComboBox1.getSelectedItem();
+        if (!name.equals("") && !price.equals("") && Category != null) {
             btnUpdate.setEnabled(true);
-        }
-        else
-        {
+        } else {
             btnUpdate.setEnabled(false);
         }
     }
@@ -78,10 +75,11 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/view edit delete product.png"))); // NOI18N
-        jLabel1.setText("View,Edit & Delete Product");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 32, 380, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/edit.png"))); // NOI18N
+        jLabel1.setText("View, Edit & Delete Product");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 23, -1, -1));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/close.png"))); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,68 +87,63 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1275, 18, 70, 50));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1334, 6, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
-        jLabel2.setText("ID:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(232, 175, 43, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("ID");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 248, 37, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Name");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 80, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 280, 65, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Category");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 120, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 321, -1, -1));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Price");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 70, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(328, 362, -1, -1));
 
-        lblId.setFont(new java.awt.Font("Segoe UI Black", 1, 18)); // NOI18N
+        lblId.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblId.setForeground(new java.awt.Color(255, 255, 255));
         lblId.setText("00");
-        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 175, 43, -1));
+        getContentPane().add(lblId, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 248, 37, -1));
 
-        txtName.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        txtName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtNameKeyReleased(evt);
             }
         });
-        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 238, 318, -1));
+        getContentPane().add(txtName, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 277, 349, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 300, 318, -1));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 318, 349, -1));
 
-        txtPrice.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtPrice.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPriceActionPerformed(evt);
-            }
-        });
+        txtPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtPrice.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPriceKeyReleased(evt);
             }
         });
-        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(345, 362, 318, -1));
+        getContentPane().add(txtPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 359, 349, -1));
 
-        btnUpdate.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/save.png"))); // NOI18N
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/updatee_1.png"))); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
             }
         });
-        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 420, 110, 40));
+        getContentPane().add(btnUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(415, 400, -1, 30));
 
-        btnDelete.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnDelete.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/delete.png"))); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -158,19 +151,19 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, 110, 40));
+        getContentPane().add(btnDelete, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 400, -1, 30));
 
-        btnClear.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clear.png"))); // NOI18N
+        btnClear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/clearr.png"))); // NOI18N
         btnClear.setText("Clear");
         btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 110, 40));
+        getContentPane().add(btnClear, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 400, 110, 30));
 
-        jTable1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jTable1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -186,88 +179,89 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(793, 130, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(821, 139, -1, -1));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/full-page-background.PNG"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -60, 1470, 900));
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/green-background-medium.png"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        Product product=new Product();
-        int id=Integer.parseInt(lblId.getText());
+        Product product = new Product();
+        int id = Integer.parseInt(lblId.getText());
         product.setId(id);
         product.setName(txtName.getText());
-        product.setCategory((String)jComboBox1.getSelectedItem());
+        product.setCategory((String) jComboBox1.getSelectedItem());
         product.setPrice(txtPrice.getText());
         ProductDao.update(product);
         setVisible(false);
         new ViewEditDeleteProduct().setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPriceActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
     private void txtNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyReleased
         // TODO add your handling code here:
-        validateField();
+        validatFeild();
     }//GEN-LAST:event_txtNameKeyReleased
 
     private void txtPriceKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPriceKeyReleased
         // TODO add your handling code here:
-        validateField();
+        validatFeild();
     }//GEN-LAST:event_txtPriceKeyReleased
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
-        DefaultTableModel dtm=(DefaultTableModel) jTable1.getModel();
-        ArrayList<Product> list=ProductDao.getAllRecords();
-        Iterator<Product> itr=list.iterator();
-        while(itr.hasNext())
-        {
-            Product productObj=itr.next();
-            dtm.addRow(new Object[]{productObj.getId(),productObj.getName(),productObj.getCategory(),productObj.getPrice()});
+        DefaultTableModel dtm = (DefaultTableModel) jTable1.getModel();
+        ArrayList<Product> list = ProductDao.getAllRecords();
+        Iterator<Product> itr = list.iterator();
+        while (itr.hasNext()) {
+            Product productObj = itr.next();
+            dtm.addRow(new Object[]{productObj.getId(), productObj.getName(), productObj.getCategory(), productObj.getPrice()});
+
         }
     }//GEN-LAST:event_formComponentShown
 
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLabel7MouseClicked
+
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        int index=jTable1.getSelectedRow();
-        TableModel model=jTable1.getModel();
-        String id=model.getValueAt(index, 0).toString();
+        int index = jTable1.getSelectedRow();
+        TableModel model = jTable1.getModel();
+        String id = model.getValueAt(index, 0).toString();
         lblId.setText(id);
-        String name=model.getValueAt(index, 1).toString();
+        String name = model.getValueAt(index, 1).toString();
         txtName.setText(name);
-        String category=model.getValueAt(index, 2).toString();
-         String price=model.getValueAt(index, 3).toString();
-         txtPrice.setText(price);
+        String category = model.getValueAt(index, 2).toString();
+        String price = model.getValueAt(index, 3).toString();
+        txtPrice.setText(price);
+
         btnUpdate.setEnabled(true);
         btnDelete.setEnabled(true);
         jComboBox1.removeAllItems();
         jComboBox1.addItem(category);
-        ArrayList<Category> categoryList=CategoryDao.getAllRecords();
-        Iterator<Category> categoryItr=categoryList.iterator();
-        while(categoryItr.hasNext())
-        {
-            Category categorObj=categoryItr.next();
-            if(!categorObj.getName().equals(category))
-                jComboBox1.addItem(categorObj.getName());
+        ArrayList<Category> categoryList = CategoryDao.getAllRecords();
+        Iterator<Category> categoryItr = categoryList.iterator();
+        while (categoryItr.hasNext()) {
+            Category categoryObj = categoryItr.next();
+            if (!categoryObj.getName().equals(category)) {
+                jComboBox1.addItem(categoryObj.getName());
+            }
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        String id=lblId.getText();
-        int a=JOptionPane.showConfirmDialog(null,"Do you want to Delete this product","Select",JOptionPane.YES_NO_OPTION);
-        if(a==0)
-        {
+        String id = lblId.getText();
+        int a = JOptionPane.showConfirmDialog(null, "Do you want to delete this product", "Select", JOptionPane.YES_NO_OPTION);
+        if (a == 0) {
             ProductDao.delete(id);
             setVisible(false);
             new ViewEditDeleteProduct().setVisible(true);
@@ -277,12 +271,13 @@ public class ViewEditDeleteProduct extends javax.swing.JFrame {
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
         setVisible(false);
-            new ViewEditDeleteProduct().setVisible(true);
+        new ViewEditDeleteProduct().setVisible(true);
     }//GEN-LAST:event_btnClearActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         setVisible(false);
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

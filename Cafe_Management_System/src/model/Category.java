@@ -6,7 +6,7 @@ package model;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class Category {
     private int id;
@@ -27,5 +27,4 @@ public class Category {
     public void setName(String name) {
         this.name = name;
     }
-    
 }

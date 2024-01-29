@@ -6,13 +6,16 @@ package model;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class Bill {
     private int id;
     private String name;
     private String mobileNumber;
     private String email;
+    private String date;
+    private String total;
+    private String createdBy;
 
     public int getId() {
         return id;
@@ -69,7 +72,6 @@ public class Bill {
     public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
-    private String date;
-    private String total;
-    private String createdBy;
+
+    
 }

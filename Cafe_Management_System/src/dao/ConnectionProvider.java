@@ -6,17 +6,17 @@ package dao;
 import java.sql.*;
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ConnectionProvider {
     public static Connection getCon(){
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            return  DriverManager.getConnection("jdbc:mysql://localhost:3306/cms?SSL=false","root","mysql");
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/cms?useSSL=false","root","Omkar@123");
+            return con;
         }
         catch(Exception e){
-        return null;
+            return null;
         }
     }
-    
 }
