@@ -9,7 +9,7 @@ import model.User;
 
 /**
  *
- * @author Aneesh
+ * @author Ajinkya
  */
 public class ChangeSecurityQuestion extends javax.swing.JFrame {
         public String userEmail;
